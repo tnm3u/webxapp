@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" class="transition-colors duration-300">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>404 | IPTV Dashboard</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class'
+  };
+</script>
+<style>
+  body {
+    font-family: 'Inter', sans-serif;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+  .header, footer {
+    backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.05);
+  }
+  .dark .header, .dark footer {
+    background: rgba(0, 0, 0, 0.2);
+  }
+  .error-card {
+    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.8);
+  }
+  .dark .error-card {
+    background: rgba(255, 255, 255, 0.08);
+  }
+  .brand-gradient {
+    background: linear-gradient(90deg, #6366f1, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+</style>
+</head>
+<body class="flex flex-col min-h-screen bg-gray-50 text-gray-800 dark:bg-[#0f172a] dark:text-white">
+
+<!-- Header -->
+<header class="header w-full py-4 px-6 flex justify-between items-center fixed top-0 z-10 border-b border-gray-200 dark:border-gray-800">
+  <div class="flex items-center space-x-3">
+    <h1 class="text-lg font-semibold tracking-wide">IPTV Admin</h1>
+  </div>
+
+  <div class="flex items-center space-x-3">
+    <span class="text-sm text-gray-600 dark:text-gray-400 hidden sm:block">
+      <i class="fas fa-exclamation-triangle mr-1"></i> Error Page
+    </span>
+    <button id="themeToggle" class="bg-gray-100 dark:bg-gray-800 p-2 rounded-full shadow hover:scale-105 transition">
+      <i id="themeIcon" class="fas fa-moon text-gray-700 dark:text-yellow-400"></i>
+    </button>
+  </div>
+</header>
+
+<!-- Main -->
+<main class="flex-grow flex items-center justify-center px-4 pt-24 pb-20">
+  <div class="error-card shadow-2xl rounded-2xl p-8 w-full max-w-lg text-center transition-all dark:shadow-lg dark:border dark:border-gray-700">
+    <div class="flex justify-center mb-6">
+      <div class="bg-indigo-600 text-white rounded-full p-4 shadow-lg">
+        <i class="fas fa-satellite-dish text-3xl"></i>
+      </div>
+    </div>
+    <h1 class="text-6xl font-bold mb-3 brand-gradient">404</h1>
+    <h2 class="text-2xl font-semibold mb-2">Page Not Found</h2>
+    <p class="text-gray-600 dark:text-gray-400 mb-6">
+      Oops! The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.
+    </p>
+    <div class="flex justify-center gap-4">
+      <a href="index.html" class="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-5 rounded-lg shadow-md hover:shadow-lg transition">
+        <i class="fas fa-home mr-2"></i> Go Home
+      </a>
+      <a href="login.html" class="bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-200 font-semibold py-3 px-5 rounded-lg transition">
+        <i class="fas fa-lock mr-2"></i> Admin Login
+      </a>
+    </div>
+
+    <div class="text-center mt-8 border-t border-gray-200 dark:border-gray-700 pt-3 text-xs text-gray-500 dark:text-gray-400">
+      IPTV Panel V1.0 • Managed by <span class="brand-gradient font-semibold">Tnm3u</span>
+    </div>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="w-full py-4 px-6 text-center text-xs border-t border-gray-200 dark:border-gray-800">
+  <div class="flex flex-col sm:flex-row items-center justify-center gap-2">
+    <p>© 2025 <span class="brand-gradient font-semibold">Tnm3u</span> IPTV Panel</p>
+    <span class="hidden sm:inline text-gray-400">|</span>
+    <p><i class="fas fa-headset text-indigo-500 mr-1"></i> Support: 
+      <a href="mailto:tnm3us@gmail.com" class="text-indigo-500 hover:underline">tnm3us@gmail.com</a>
+    </p>
+  </div>
+</footer>
+
+<!-- Theme Toggle -->
+<script>
+  const themeToggle = document.getElementById('themeToggle');
+  const themeIcon = document.getElementById('themeIcon');
+  const html = document.documentElement;
+
+  if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    html.classList.add('dark');
+    themeIcon.classList.replace('fa-moon', 'fa-sun');
+  } else {
+    html.classList.remove('dark');
+  }
+
+  themeToggle.addEventListener('click', () => {
+    html.classList.toggle('dark');
+    if (html.classList.contains('dark')) {
+      themeIcon.classList.replace('fa-moon', 'fa-sun');
+      localStorage.theme = 'dark';
+    } else {
+      themeIcon.classList.replace('fa-sun', 'fa-moon');
+      localStorage.theme = 'light';
+    }
+  });
+</script>
+
+</body>
+</html>
