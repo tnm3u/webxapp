@@ -1,5 +1,5 @@
 #EXTM3U
-#EXTINF:-1 tvg-name="Raj Tv" group-title="Tamil" tvg-logo="https://i.ibb.co/5HQgfr4/1000148546.png",Raj Tv
+#EXTINF:-1 tvg-name="Raj Tv" group-title="News" tvg-logo="https://i.ibb.co/5HQgfr4/1000148546.png",Raj Tv
 https://d3qs3d2rkhfqrt.cloudfront.net/out/v1/2839e3d1e0f84a2e821c1708d5fdfdf0/index.m3u8
 #EXTINF:-1 tvg-name="News 18 Tamil" group-title="Tamil" tvg-logo="https://i.ibb.co/Z1m8dMzC/1000157617.png",News 18 Tamil
 https://nw18live.cdn.jio.com/bpk-tv/News18_Tamil_Nadu_NW18_MOB/output01/master.m3u8
